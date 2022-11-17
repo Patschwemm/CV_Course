@@ -2,3 +2,8 @@ Sheet 1:
 
     1. Really clever implementation of integral image. Forgot to take mean though in the results, both for sum and time
     4. 3 sigma is only half width, so kernel size is 2 * half width, hence you have higher difference with Gaussian Blur from opencv
+
+Sheet 2:
+    1. Kernel size of 7x7 corresponds to height = width = 7, not 49
+    4. Image blending mask is grayscale, i.e. min=0, max=255, so instead of (1 - GR), it should be (255 - GR), the 1 in slides is assuming a binary mask.
+       Ensure that data is of signed type before taking differences, in Laplacian Pyramid construction
