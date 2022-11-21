@@ -7,3 +7,8 @@ Sheet 2:
     1. Kernel size of 7x7 corresponds to height = width = 7, not 49
     4. Image blending mask is grayscale, i.e. min=0, max=255, so instead of (1 - GR), it should be (255 - GR), the 1 in slides is assuming a binary mask.
        Ensure that data is of signed type before taking differences, in Laplacian Pyramid construction
+       
+Sheet 3:
+    3c. Normalize the pixel coordinates to same range as intensity, otherwise the pixel coordinates will dominate the kmeans algorithm
+    4. Degree Matrix is wrong, it is the sum of all edge weights going out of a each node in the graph
+       Computation of Graph Cut wrong - eigen decomposition of the Graph Laplacian is the right way       
