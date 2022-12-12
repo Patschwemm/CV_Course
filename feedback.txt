@@ -14,3 +14,10 @@ Sheet 4:
        One advice, avoid such high dimensional matrices (you have e_total = np.zeros((V_size, k * k, 6, k, k)) which is 5 dimensional)
             - Such implementations are prone to errors. A 2 dimensional matrix is sufficient for this exercise's purpose
     2. Incomplete 0/10
+
+Sheet 6:
+
+    2. There is a bug in your code, check your variable names - especially for variance/covariance
+    3. The split is wrong - standard deviation is supposed to be used to compute new means, not the variance
+       (2 * np.power(self.var, 2)) -> Why square the variance??
+       Does not work as expected -> Refer model solution
