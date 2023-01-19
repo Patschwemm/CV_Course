@@ -20,4 +20,12 @@ Sheet 6:
     2. There is a bug in your code, check your variable names - especially for variance/covariance
     3. The split is wrong - standard deviation is supposed to be used to compute new means, not the variance
        (2 * np.power(self.var, 2)) -> Why square the variance??
+<<<<<<< HEAD
        Does not work as expected -> Refer model solution
+=======
+       Does not work as expected -> Refer model solution
+
+Sheet 7:
+    1. Solution looks very similar to model solution from last year
+    2, 3. Not Submitted
+>>>>>>> 453f5c11ae4f09078f77c96b1fbb1389756710ca

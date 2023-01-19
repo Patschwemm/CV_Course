@@ -4,4 +4,9 @@ Sheet 2: 18.5/20
 Sheet 3: 10/20
 Sheet 4: 6/20
 Sheet 5: 13/20
+<<<<<<< HEAD
 Sheet 6: 9/20
+=======
+Sheet 6: 9/20
+Sheet 7: 0/20
+>>>>>>> 453f5c11ae4f09078f77c96b1fbb1389756710ca
