@@ -20,12 +20,44 @@ Sheet 6:
     2. There is a bug in your code, check your variable names - especially for variance/covariance
     3. The split is wrong - standard deviation is supposed to be used to compute new means, not the variance
        (2 * np.power(self.var, 2)) -> Why square the variance??
-<<<<<<< HEAD
-       Does not work as expected -> Refer model solution
-=======
        Does not work as expected -> Refer model solution
 
 Sheet 7:
     1. Solution looks very similar to model solution from last year
     2, 3. Not Submitted
->>>>>>> 453f5c11ae4f09078f77c96b1fbb1389756710ca
+
+Sheet 8:
+    1. The SVD approach is not right. Why all the MAtrix multiplications for singular values??
+       Why only 20 principle components, why mean of those 20? Need to weigh and add each component to the mean
+            pc_weighted[:20] = pc_weighted[:20] * w
+            visualizeHands(ax[i], pc_weighted.mean(axis=0) + mean, f"PC0 weighted {w} Hand", xmax, ymax)
+       3/5
+
+    2. 0/3
+
+    3a. 2/3 - Piece of code below is not RMSE, you square a matrix and take sqrt b4 summing over the squared values
+            diff = (recon_img - orig_img)
+            rmse = np.sqrt(diff**2)
+    3b. 1.5/2 - "for img in faces: ..." -> This for loop code is repeated twice leading to enhanced accuracy
+    3c. 1/1
+
+    4a. 1.5/2 - The kernel is supposed to be summing over all pixels in neighborhood, not to average over it
+    4b. 1/2 - NonMaxSuppression was not performed
+    4c. 1/2 - w and q do not have the same threshold scale
+
+    5a. 2/2
+    5b. 1/2 - Matching was supposed to be implemented on your own, not using opencv matcher
+    6. 0/5
+
+Sheet 9:
+    Lukas Kanade Flow: 2/6
+        - IxIy = self.Ix + self.Iy : Why + instead of *?
+        - window_kernel = np.ones((self.WINDOW_SIZE)) / (self.WINDOW_SIZE[0] * self.WINDOW_SIZE[1]) -> Don't have to average pixels, just have to sum over them, no need of normalization
+        - terms related to It have a negative sign, see equations in slides
+    
+    Horn_Schunck_flow: 5/6
+        - difference = np.abs(u_new.sum() - u.sum()) + np.abs(v_new.sum() - v.sum()) -> This is not L2 norm, this equation does not fit the criteria of any norm
+
+Sheet 10:
+    Why Compute Homography and not do the actual task of triangulation, which is nowhere related to Homography? 
+    Totally unrelated submission, except for the sift feature part, which also has the ratio test missing, also no visualization of the features and matches
