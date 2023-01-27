@@ -55,9 +55,14 @@ Sheet 9:
         - window_kernel = np.ones((self.WINDOW_SIZE)) / (self.WINDOW_SIZE[0] * self.WINDOW_SIZE[1]) -> Don't have to average pixels, just have to sum over them, no need of normalization
         - terms related to It have a negative sign, see equations in slides
     
-    Horn_Schunck_flow: 5/6
+    Horn_Schunck_flow: 5/6 still reduced points somehow
         - difference = np.abs(u_new.sum() - u.sum()) + np.abs(v_new.sum() - v.sum()) -> This is not L2 norm, this equation does not fit the criteria of any norm
 
 Sheet 10:
     Why Compute Homography and not do the actual task of triangulation, which is nowhere related to Homography? 
     Totally unrelated submission, except for the sift feature part, which also has the ratio test missing, also no visualization of the features and matches
+
+    P_3x4 x ( x y z 1)^T = (x y w)
+    then given lin eq. x1p1 = x and x2p2 = x, cross product of these have to be 0 for it to be 
+    projected to the same: x2 (cross product) P1X = 0, same for P2
+    (can be in exam)
