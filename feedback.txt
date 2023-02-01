@@ -50,19 +50,35 @@ Sheet 8:
     6. 0/5
 
 Sheet 9:
-    Lukas Kanade Flow: 2/6
+    Lukas Kanade Flow: 4/6
         - IxIy = self.Ix + self.Iy : Why + instead of *?
         - window_kernel = np.ones((self.WINDOW_SIZE)) / (self.WINDOW_SIZE[0] * self.WINDOW_SIZE[1]) -> Don't have to average pixels, just have to sum over them, no need of normalization
-        - terms related to It have a negative sign, see equations in slides
     
-    Horn_Schunck_flow: 5/6 still reduced points somehow
+    Horn_Schunck_flow: 6/6
         - difference = np.abs(u_new.sum() - u.sum()) + np.abs(v_new.sum() - v.sum()) -> This is not L2 norm, this equation does not fit the criteria of any norm
 
 Sheet 10:
     Why Compute Homography and not do the actual task of triangulation, which is nowhere related to Homography? 
-    Totally unrelated submission, except for the sift feature part, which also has the ratio test missing, also no visualization of the features and matches
+    Totally unrelated submission, except for the sift feature part, also no visualization of the features and matches
 
-    P_3x4 x ( x y z 1)^T = (x y w)
-    then given lin eq. x1p1 = x and x2p2 = x, cross product of these have to be 0 for it to be 
-    projected to the same: x2 (cross product) P1X = 0, same for P2
-    (can be in exam)
+Sheet 11:
+    1. Normalization of coordinates is wrong. It was asked that the RMS distance between origin and data points in 2. What you have done is not RMS of the distance between points. 
+       Instead, you have just normalized the data like we do for example in PCA.
+
+       Also, you have to undo the normalization to get the Fundamental Matrix in original coordinates. Hence your epipolar lines do not pass through the correspondance points 
+
+       2.5/5
+    
+    2. The epipolar lines are not plotted on the right images l = Fx' --> epipolar line in image 1 corresponding to points in image 2
+                                                              l' = F.Tx --> epipolar line in image 2 corresponding to points in image 1
+        1.5/3
+
+    3. The search window should be along the scanlines - The hint said images were rectified, which means epipolar lines are all horizontal and corresponding to scanlines
+       min_val is not the same as disparity - min_val is the template matching score for the best match, disparity is the distance between matching pixel's x-coordinates
+
+       4/6 (disparity can be asked in the exam)
+
+    4. This is not the Homography Transform asked for. See the slides for Image Rectification to compute disparity image. A reference paper was also provided for the same.
+       No points awarded for this as the code submitted has already been done two times before.
+
+       0/6 (Rectification might be in exam but not the formulas, more of how fundamental matrix looks, wh it is used etc.)
